@@ -55,6 +55,7 @@ export const resources = {
         { title: "公共工程測繪", desc: "協助政府機關進行道路、橋樑及公共設施之精密測量。" },
         { title: "古蹟數位保存", desc: "運用雷射掃描技術，完整記錄歷史建築幾何資訊。" },
         { title: "大面積地形測量", desc: "無人機航拍結合地面控制點，產製高精度正射影像。" },
+        { title: "歷史建築監測作業", desc: "以精密儀器對歷史建築進行周期性位移監測，確保結構安全並提供變形分析報告。" },
       ]
     },
     contact: {
@@ -148,6 +149,7 @@ export const resources = {
         { title: "Public Works Survey", desc: "Precise surveying for roads, bridges, and public facilities." },
         { title: "Heritage Preservation", desc: "Using laser scanning to record historical building geometries." },
         { title: "Large-scale Mapping", desc: "UAV mapping combined with ground control points for orthophotos." },
+        { title: "Historic Building Monitoring", desc: "Periodic displacement monitoring of historic buildings using precision instruments, ensuring structural safety with deformation analysis reports." },
       ]
     },
     contact: {

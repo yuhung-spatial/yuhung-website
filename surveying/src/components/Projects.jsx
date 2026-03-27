@@ -10,6 +10,12 @@ import terrainXishan from '../assets/terrain/xishan.jpg';
 import terrainNqu from '../assets/terrain/nqu.jpg';
 import terrainLongko from '../assets/terrain/longko.jpg';
 
+import monitoring1 from '../assets/monitoring/monitoring_1.jpg';
+import monitoring2 from '../assets/monitoring/monitoring_2.jpg';
+import monitoring3 from '../assets/monitoring/monitoring_3.jpg';
+import monitoring4 from '../assets/monitoring/monitoring_4.jpg';
+import monitoring5 from '../assets/monitoring/monitoring_5.jpg';
+
 const heritageVideos = [
   { src: video1, label: '東蕭村蕭顯紀洋樓' },
   { src: video2, label: '東蕭村蕭顯傳洋樓' },
@@ -23,11 +29,20 @@ const terrainSlides = [
   { img: terrainLongko, label: '嚨口' },
 ];
 
+const monitoringSlides = [
+  { img: monitoring1, label: '工作照 1' },
+  { img: monitoring2, label: '工作照 2' },
+  { img: monitoring3, label: '工作照 3' },
+  { img: monitoring4, label: '工作照 4' },
+  { img: monitoring5, label: '工作照 5' },
+];
+
 export default function Projects() {
   const { t, lang } = useContext(LanguageContext);
   const [imgLoaded, setImgLoaded] = useState(Array(3).fill(false));
   const [terrainIndex, setTerrainIndex] = useState(0);
   const [heritageIndex, setHeritageIndex] = useState(0);
+  const [monitoringIndex, setMonitoringIndex] = useState(0);
 
   // 大面積地形測量幻燈片：每 5 秒切換
   useEffect(() => {
@@ -45,10 +60,19 @@ export default function Projects() {
     return () => clearInterval(interval);
   }, []);
 
+  // 歷史建築監測幻燈片：每 5 秒切換
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMonitoringIndex(prev => (prev + 1) % monitoringSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const projectImages = [
     "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1600&auto=format&fit=crop", // 公共工程
     null, // 古蹟數位保存：改用影片
     null, // 大面積地形測量：改用幻燈片
+    null, // 歷史建築監測：改用幻燈片
   ];
 
   return (
@@ -134,6 +158,23 @@ export default function Projects() {
                 />
               ))}
 
+              {/* ── 歷史建築監測：幻燈片 ── */}
+              {index === 3 && monitoringSlides.map((slide, idx) => (
+                <Box
+                  key={idx}
+                  sx={{
+                    backgroundImage: `url(${slide.img})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    position: 'absolute',
+                    top: 0, left: 0,
+                    width: '100%', height: '100%',
+                    opacity: idx === monitoringIndex ? 1 : 0,
+                    transition: 'opacity 1.5s ease-in-out',
+                  }}
+                />
+              ))}
+
               {/* 漸層遮罩與文字 */}
               <Box
                 sx={{
@@ -183,6 +224,40 @@ export default function Projects() {
                       }}
                     >
                       {v.label}
+                    </Box>
+                  ))}
+                </Box>
+              )}
+
+              {/* 歷史建築監測幻燈片指示點 */}
+              {index === 3 && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 20, right: 24,
+                    display: 'flex',
+                    gap: 1.5,
+                    zIndex: 3,
+                  }}
+                >
+                  {monitoringSlides.map((slide, idx) => (
+                    <Box
+                      key={idx}
+                      onClick={() => setMonitoringIndex(idx)}
+                      sx={{
+                        px: 1.5, py: 0.5,
+                        borderRadius: 2,
+                        bgcolor: idx === monitoringIndex ? '#1565c0' : 'rgba(255,255,255,0.3)',
+                        color: 'white',
+                        fontSize: '0.75rem',
+                        fontWeight: idx === monitoringIndex ? 'bold' : 'normal',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(4px)',
+                        '&:hover': { bgcolor: '#1565c0' },
+                      }}
+                    >
+                      {idx + 1}
                     </Box>
                   ))}
                 </Box>
