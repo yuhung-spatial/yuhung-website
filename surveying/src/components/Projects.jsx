@@ -37,11 +37,11 @@ export default function Projects() {
     return () => clearInterval(interval);
   }, []);
 
-  // 古蹟數位保存幻燈片：每 5 秒切換
+  // 古蹟數位保存幻燈片：每 30 秒切換
   useEffect(() => {
     const interval = setInterval(() => {
       setHeritageIndex(prev => (prev + 1) % heritageVideos.length);
-    }, 5000);
+    }, 30000);
     return () => clearInterval(interval);
   }, []);
 
