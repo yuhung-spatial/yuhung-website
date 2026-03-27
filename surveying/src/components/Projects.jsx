@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Box, Container, Typography, Grid, Skeleton } from '@mui/material';
+import { Box, Container, Typography, Grid } from '@mui/material';
 import { LanguageContext } from '../App';
 
 import video1 from '../videos/東蕭村蕭顯紀洋樓.mp4';
@@ -39,7 +39,6 @@ const monitoringSlides = [
 
 export default function Projects() {
   const { t, lang } = useContext(LanguageContext);
-  const [imgLoaded, setImgLoaded] = useState(Array(3).fill(false));
   const [terrainIndex, setTerrainIndex] = useState(0);
   const [heritageIndex, setHeritageIndex] = useState(0);
   const [monitoringIndex, setMonitoringIndex] = useState(0);
@@ -69,10 +68,9 @@ export default function Projects() {
   }, []);
 
   const projectImages = [
-    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1600&auto=format&fit=crop", // 公共工程
+    null, // 公共工程測繪：改用監測幻燈片
     null, // 古蹟數位保存：改用影片
     null, // 大面積地形測量：改用幻燈片
-    null, // 歷史建築監測：改用幻燈片
   ];
 
   return (
@@ -96,27 +94,22 @@ export default function Projects() {
               }}
             >
               {/* ── 公共工程：單張圖片 ── */}
-              {index === 0 && (
-                <>
-                  {!imgLoaded[0] && (
-                    <Skeleton variant="rectangular" width="100%" height="100%" animation="wave" sx={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }} />
-                  )}
-                  <Box
-                    component="img"
-                    src={projectImages[0]}
-                    alt={`${item.title} - 祐鴻測繪案例`}
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      opacity: imgLoaded[0] ? 1 : 0,
-                      transition: 'opacity 0.3s, transform 0.5s ease',
-                      '&:hover': { transform: 'scale(1.05)' },
-                    }}
-                    onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[0] = true; return n; })}
-                  />
-                </>
-              )}
+              {/* ── 公共工程測繪：歷史建築監測幻燈片 ── */}
+              {index === 0 && monitoringSlides.map((slide, idx) => (
+                <Box
+                  key={idx}
+                  sx={{
+                    backgroundImage: `url(${slide.img})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    position: 'absolute',
+                    top: 0, left: 0,
+                    width: '100%', height: '100%',
+                    opacity: idx === monitoringIndex ? 1 : 0,
+                    transition: 'opacity 1.5s ease-in-out',
+                  }}
+                />
+              ))}
 
               {/* ── 古蹟數位保存：可選影片幻燈片 ── */}
               {index === 1 && heritageVideos.map((v, idx) => (
@@ -153,23 +146,6 @@ export default function Projects() {
                     top: 0, left: 0,
                     width: '100%', height: '100%',
                     opacity: idx === terrainIndex ? 1 : 0,
-                    transition: 'opacity 1.5s ease-in-out',
-                  }}
-                />
-              ))}
-
-              {/* ── 歷史建築監測：幻燈片 ── */}
-              {index === 3 && monitoringSlides.map((slide, idx) => (
-                <Box
-                  key={idx}
-                  sx={{
-                    backgroundImage: `url(${slide.img})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    position: 'absolute',
-                    top: 0, left: 0,
-                    width: '100%', height: '100%',
-                    opacity: idx === monitoringIndex ? 1 : 0,
                     transition: 'opacity 1.5s ease-in-out',
                   }}
                 />
@@ -229,8 +205,8 @@ export default function Projects() {
                 </Box>
               )}
 
-              {/* 歷史建築監測幻燈片指示點 */}
-              {index === 3 && (
+              {/* 公共工程：歷史建築監測作業 標籤 */}
+              {index === 0 && (
                 <Box
                   sx={{
                     position: 'absolute',
@@ -240,26 +216,19 @@ export default function Projects() {
                     zIndex: 3,
                   }}
                 >
-                  {monitoringSlides.map((slide, idx) => (
-                    <Box
-                      key={idx}
-                      onClick={() => setMonitoringIndex(idx)}
-                      sx={{
-                        px: 1.5, py: 0.5,
-                        borderRadius: 2,
-                        bgcolor: idx === monitoringIndex ? '#1565c0' : 'rgba(255,255,255,0.3)',
-                        color: 'white',
-                        fontSize: '0.75rem',
-                        fontWeight: idx === monitoringIndex ? 'bold' : 'normal',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        backdropFilter: 'blur(4px)',
-                        '&:hover': { bgcolor: '#1565c0' },
-                      }}
-                    >
-                      {idx + 1}
-                    </Box>
-                  ))}
+                  <Box
+                    sx={{
+                      px: 1.5, py: 0.5,
+                      borderRadius: 2,
+                      bgcolor: '#1565c0',
+                      color: 'white',
+                      fontSize: '0.75rem',
+                      fontWeight: 'bold',
+                      backdropFilter: 'blur(4px)',
+                    }}
+                  >
+                    歷史建築監測作業
+                  </Box>
                 </Box>
               )}
 
