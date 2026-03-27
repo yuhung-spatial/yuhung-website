@@ -1,5 +1,5 @@
 {
-  "name": "my-react-app",
+  "name": "yh-surveying",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,10 +15,8 @@
     "@mui/icons-material": "^7.3.6",
     "@mui/material": "^7.3.6",
     "framer-motion": "^12.23.26",
-    "i18next": "^25.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-i18next": "^15.6.0",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {

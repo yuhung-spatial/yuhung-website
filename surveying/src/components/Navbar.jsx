@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItemButton, ListItemText, Container, Typography, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import TranslateIcon from '@mui/icons-material/Translate'; 
@@ -19,14 +19,14 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const brandColor = '#FF9900'; 
 
-  // 選單項目
-  const navItems = [
+  // 選單項目 (useMemo 避免每次 render 重建，導致 useEffect 重複觸發)
+  const navItems = useMemo(() => [
     { label: t.nav.about, target: 'about' },
     { label: t.nav.services, target: 'services' },
-    { label: t.nav.equipment, target: 'equipment' }, 
+    { label: t.nav.equipment, target: 'equipment' },
     { label: t.nav.projects, target: 'projects' },
     { label: t.nav.contact, target: 'contact' }
-  ];
+  ], [t]);
 
   // 滾動監聽與跳轉邏輯
   useEffect(() => {
@@ -77,13 +77,13 @@ export default function Navbar() {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
               <Box component="img" src={logoSpace} alt="Logo" sx={{ height: 28, width: 'auto' }} />
               <Typography variant="subtitle2" sx={companyTitleSx}>
-                祐鴻空間資訊有限公司
+                {t.nav.companySpace}
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
               <Box component="img" src={logoSurvey} alt="Logo" sx={{ height: 28, width: 'auto' }} />
               <Typography variant="subtitle2" sx={companyTitleSx}>
-                祐鴻測繪科技有限公司
+                {t.nav.companySurvey}
               </Typography>
             </Box>
           </Box>
