@@ -15,8 +15,7 @@ let theme = createTheme({
     },
     background: {
       default: '#FFFFFF',
-      paper: '#FFFFFF',
-      neutral: '#F4F6F8', // 淺灰背景，用於區隔區塊
+      paper: '#F8F9FA', // 淺灰背景，用於區隔區塊
     },
     text: {
       primary: '#1A2027', // 深灰黑，比純黑柔和

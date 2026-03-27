@@ -8,6 +8,8 @@ export const resources = {
       projects: "經典案例",
       contact: "聯絡我們",
       langSwitch: "English",
+      companySpace: "祐鴻空間資訊有限公司",
+      companySurvey: "祐鴻測繪科技有限公司",
     },
     hero: {
       title: "以毫米為單位的空間紀錄者",
@@ -68,7 +70,12 @@ export const resources = {
       info: {
         kaohsiung: "高雄辦公室",
         kinmen: "金門辦公室",
-      }
+      },
+      alerts: {
+        phoneError: "請輸入正確的手機號碼格式（例如：0912345678）",
+        success: "感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫。",
+        networkError: "發送失敗，請檢查網路連線或稍後再試。",
+      },
     },
     footer: {
       kaohsiung: "高雄辦公室",
@@ -80,6 +87,8 @@ export const resources = {
       contact: "聯絡與關注",
       kaohsiungAddr: "高雄市左營區曾子路533號",
       kinmenAddr: "金門縣金寧鄉頂埔下88-8號",
+      brandSpace: "祐鴻空間資訊",
+      brandSurvey: "祐鴻測繪科技",
       copyright: "祐鴻空間資訊有限公司 | 祐鴻測繪科技有限公司 All Rights Reserved.",
     }
   },
@@ -91,6 +100,8 @@ export const resources = {
       projects: "Projects",
       contact: "Contact",
       langSwitch: "中文",
+      companySpace: "YuHung Spatial Information Co., Ltd.",
+      companySurvey: "YuHung Surveying Technology Co., Ltd.",
     },
     hero: {
       title: "Precision Spatial Recorders",
@@ -151,7 +162,12 @@ export const resources = {
       info: {
         kaohsiung: "Kaohsiung Office",
         kinmen: "Kinmen Office",
-      }
+      },
+      alerts: {
+        phoneError: "Please enter a valid phone number (e.g. 0912345678).",
+        success: "Thank you! We received your message and will get back to you shortly.",
+        networkError: "Failed to send. Please check your connection and try again.",
+      },
     },
     footer: {
       kaohsiung: "Kaohsiung Office",
@@ -163,6 +179,8 @@ export const resources = {
       contact: "Contact Us",
       kaohsiungAddr: "No. 533, Zengzi Rd., Zuoying Dist., Kaohsiung City",
       kinmenAddr: "No. 88-8, Dingpuxia, Jinning Township, Kinmen County",
+      brandSpace: "YuHung Spatial Information",
+      brandSurvey: "YuHung Surveying Technology",
       copyright: "YuHung Spatial Information Co., Ltd. | YuHung Surveying Technology Co., Ltd. All Rights Reserved.",
     }
   }

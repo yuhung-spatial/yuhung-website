@@ -21,7 +21,6 @@ body {
 /* 讓圖片自適應 */
 img {
   max-width: 100%;
-  display: block;
 }
 
 /* 簡約的滾動條 */

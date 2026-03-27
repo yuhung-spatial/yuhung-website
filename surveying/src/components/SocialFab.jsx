@@ -5,12 +5,12 @@ export default function SocialFab() {
   return (
     <Stack 
       spacing={1.5} 
-      sx={{ 
-        position: 'fixed', 
-        right: 20, 
-        bottom: 100, 
+      sx={{
+        position: 'fixed',
+        right: 20,
+        bottom: 100,
         zIndex: 9999,
-        alignItems: 'end' // 讓按鈕靠右對齊
+        alignItems: 'end'
       }}
     >
       {/* --- 1. 空間資訊 LINE --- */}

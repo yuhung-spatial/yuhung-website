@@ -1,9 +1,10 @@
-import React, { useState, createContext, useContext } from 'react';
-import { Box, Toolbar, createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import React, { useState, createContext } from 'react';
+import { Box, Toolbar, ThemeProvider, CssBaseline } from '@mui/material';
 import { motion } from 'framer-motion';
 
 // 引入翻譯檔
 import { resources } from './translations';
+import theme from './theme/theme';
 
 // Components
 import Navbar from './components/Navbar';
@@ -17,21 +18,8 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import SocialFab from './components/SocialFab';
 
-// 1. 建立語言 Context
+// 建立語言 Context
 export const LanguageContext = createContext();
-
-// 2. 定義全域主題
-const theme = createTheme({
-  palette: {
-    primary: { main: '#003366', contrastText: '#ffffff' },
-    secondary: { main: '#FF9900', contrastText: '#ffffff' },
-    background: { default: '#ffffff', paper: '#f8f9fa' },
-    text: { primary: '#333333', secondary: '#666666' },
-  },
-  typography: {
-    fontFamily: ['"Noto Sans TC"', 'Roboto', 'sans-serif'].join(','),
-  },
-});
 
 const Section = ({ children, id, bg = 'white' }) => (
   <Box id={id} sx={{ py: { xs: 8, md: 12 }, bgcolor: bg === 'gray' ? 'background.paper' : 'background.default' }}>

@@ -35,7 +35,7 @@ export default function Footer() {
         {/* 品牌標題 */}
         <Box sx={{ textAlign: 'center', mb: 5 }}>
           <Typography variant="h5" fontWeight="900" letterSpacing={2} sx={{ mb: 1 }}>
-            祐鴻空間資訊 <Box component="span" sx={{ color: 'secondary.main', mx: 1 }}>|</Box> 祐鴻測繪科技
+            {t.footer.brandSpace} <Box component="span" sx={{ color: 'secondary.main', mx: 1 }}>|</Box> {t.footer.brandSurvey}
           </Typography>
           <Typography variant="body2" sx={{ opacity: 0.6 }}>{t.hero.title}</Typography>
         </Box>
@@ -46,16 +46,16 @@ export default function Footer() {
           <Grid item xs={12} sm={6}>
             <Box sx={{ bgcolor: 'rgba(255,255,255,0.05)', p: 3, borderRadius: 4, textAlign: 'center', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Typography variant="h6" fontWeight="bold" sx={{ color: 'secondary.main', mb: 2 }}>{t.footer.kaohsiung}</Typography>
-              <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(07) 350-2272" href="tel:073502272" />
-              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kaohsiungAddr} href="https://goo.gl/maps/PLACEHOLDER_KH" />
+              <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(07) 350-2272" href="tel:+88673502272" />
+              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kaohsiungAddr} href="https://maps.google.com/?q=高雄市左營區曾子路533號" />
             </Box>
           </Grid>
           {/* 金門 */}
           <Grid item xs={12} sm={6}>
             <Box sx={{ bgcolor: 'rgba(255,255,255,0.05)', p: 3, borderRadius: 4, textAlign: 'center', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Typography variant="h6" fontWeight="bold" sx={{ color: 'secondary.main', mb: 2 }}>{t.footer.kinmen}</Typography>
-              <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(082) 316-016" href="tel:082316016" />
-              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kinmenAddr} href="https://goo.gl/maps/PLACEHOLDER_KM" />
+              <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(082) 316-016" href="tel:+88682316016" />
+              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kinmenAddr} href="https://maps.google.com/?q=金門縣金寧鄉頂埔下88-8號" />
             </Box>
           </Grid>
         </Grid>
@@ -97,7 +97,7 @@ export default function Footer() {
         <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
           <Tooltip title="Facebook"><IconButton component={Link} href="https://www.facebook.com/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#1877F2', borderColor: '#1877F2' } }}><FacebookIcon /></IconButton></Tooltip>
           <Tooltip title="Instagram"><IconButton component={Link} href="https://www.instagram.com/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#E4405F', borderColor: '#E4405F' } }}><InstagramIcon /></IconButton></Tooltip>
-          <Tooltip title="LINE"><IconButton component={Link} href="https://lin.ee/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#00C300', borderColor: '#00C300' } }}><FaLine size={20} /></IconButton></Tooltip>
+          <Tooltip title="LINE 空間資訊"><IconButton component={Link} href="https://lin.ee/0D2qPhg" target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#00C300', borderColor: '#00C300' } }}><FaLine size={20} /></IconButton></Tooltip>
         </Stack>
 
         <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)', mb: 3 }} />

@@ -41,11 +41,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ★★★ 防呆檢查：驗證手機格式 (台灣 09 開頭 + 8碼) ★★★
+    // 驗證手機格式 (台灣 09 開頭 + 8碼)
     const phoneRegex = /^09\d{8}$/;
     if (!phoneRegex.test(formData.phone)) {
-      alert("請輸入正確的手機號碼格式 (例如：0912345678)");
-      return; 
+      alert(t.contact.alerts.phoneError);
+      return;
     }
 
     setLoading(true);
@@ -58,14 +58,14 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      alert('感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫。');
+      alert(t.contact.alerts.success);
       
       // 清空表單
       setFormData({ name: '', phone: '', email: '', message: '', honeypot: '' }); 
 
     } catch (error) {
       console.error("Error:", error);
-      alert('發送失敗，請檢查網路連線或稍後再試。');
+      alert(t.contact.alerts.networkError);
     } finally {
       setLoading(false);
     }
