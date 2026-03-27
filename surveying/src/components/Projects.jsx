@@ -25,11 +25,20 @@ export default function Projects() {
   const { t, lang } = useContext(LanguageContext);
   const [imgLoaded, setImgLoaded] = useState(Array(3).fill(false));
   const [terrainIndex, setTerrainIndex] = useState(0);
+  const [heritageIndex, setHeritageIndex] = useState(0);
 
-  // 大面積地形測量幻燈片：每 10 秒切換
+  // 大面積地形測量幻燈片：每 5 秒切換
   useEffect(() => {
     const interval = setInterval(() => {
       setTerrainIndex(prev => (prev + 1) % terrainSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // 古蹟數位保存幻燈片：每 5 秒切換
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeritageIndex(prev => (prev + 1) % heritageVideos.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -83,18 +92,28 @@ export default function Projects() {
                 </>
               )}
 
-              {/* ── 古蹟數位保存：自動播放影片 ── */}
-              {index === 1 && (
+              {/* ── 古蹟數位保存：可選影片幻燈片 ── */}
+              {index === 1 && heritageVideos.map((v, idx) => (
                 <Box
+                  key={idx}
                   component="video"
-                  src={heritageVideos[0].src}
+                  src={v.src}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    position: 'absolute',
+                    top: 0, left: 0,
+                    opacity: idx === heritageIndex ? 1 : 0,
+                    transition: 'opacity 1.5s ease-in-out',
+                    zIndex: 0,
+                  }}
                 />
-              )}
+              ))}
 
               {/* ── 大面積地形測量：正射影像幻燈片 ── */}
               {index === 2 && terrainSlides.map((slide, idx) => (
@@ -132,6 +151,40 @@ export default function Projects() {
                   {item.desc}
                 </Typography>
               </Box>
+
+              {/* 古蹟數位保存影片選擇器 */}
+              {index === 1 && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 20, right: 24,
+                    display: 'flex',
+                    gap: 1.5,
+                    zIndex: 3,
+                  }}
+                >
+                  {heritageVideos.map((v, idx) => (
+                    <Box
+                      key={idx}
+                      onClick={() => setHeritageIndex(idx)}
+                      sx={{
+                        px: 1.5, py: 0.5,
+                        borderRadius: 2,
+                        bgcolor: idx === heritageIndex ? '#8d6e63' : 'rgba(255,255,255,0.3)',
+                        color: 'white',
+                        fontSize: '0.75rem',
+                        fontWeight: idx === heritageIndex ? 'bold' : 'normal',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(4px)',
+                        '&:hover': { bgcolor: '#8d6e63' },
+                      }}
+                    >
+                      {v.label}
+                    </Box>
+                  ))}
+                </Box>
+              )}
 
               {/* 地形測量幻燈片指示點（含地點名稱） */}
               {index === 2 && (
@@ -171,30 +224,6 @@ export default function Projects() {
         ))}
       </Grid>
 
-      {/* ===== 古蹟數位保存影片展示 ===== */}
-      <Box sx={{ mt: 8 }}>
-        <Typography variant="h5" color="primary" fontWeight="bold" textAlign="center" gutterBottom>
-          {lang === 'en' ? 'Heritage Digital Preservation — Featured Videos' : '古蹟數位保存 — 影片展示'}
-        </Typography>
-        <Grid container spacing={3} justifyContent="center" sx={{ mt: 1 }}>
-          {heritageVideos.map((v) => (
-            <Grid item xs={12} md={5} key={v.label}>
-              <Typography variant="subtitle1" fontWeight="bold" color="text.secondary" textAlign="center" gutterBottom>
-                {v.label}
-              </Typography>
-              <Box sx={{ borderRadius: 3, overflow: 'hidden', boxShadow: 3 }}>
-                <Box
-                  component="video"
-                  src={v.src}
-                  controls
-                  playsInline
-                  sx={{ width: '100%', display: 'block', maxHeight: 320, objectFit: 'cover' }}
-                />
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
     </Container>
   );
 }
