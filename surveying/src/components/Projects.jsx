@@ -4,6 +4,7 @@ import { LanguageContext } from '../App';
 
 import video1 from '../videos/東蕭村蕭顯紀洋樓.mp4';
 import video2 from '../videos/東蕭村蕭顯傳洋樓.mp4';
+import video3 from '../videos/珠山下三落點雲動畫.mp4';
 import terrainHosaa from '../assets/terrain/hosaa.jpg';
 import terrainXishan from '../assets/terrain/xishan.jpg';
 import terrainNqu from '../assets/terrain/nqu.jpg';
@@ -12,6 +13,7 @@ import terrainLongko from '../assets/terrain/longko.jpg';
 const heritageVideos = [
   { src: video1, label: '東蕭村蕭顯紀洋樓' },
   { src: video2, label: '東蕭村蕭顯傳洋樓' },
+  { src: video3, label: '珠山下三落點雲' },
 ];
 
 const terrainSlides = [
