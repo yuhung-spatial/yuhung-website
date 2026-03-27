@@ -36,10 +36,10 @@ const theme = createTheme({
 const Section = ({ children, id, bg = 'white' }) => (
   <Box id={id} sx={{ py: { xs: 8, md: 12 }, bgcolor: bg === 'gray' ? 'background.paper' : 'background.default' }}>
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -71,7 +71,9 @@ export default function App() {
             <Section id="services" bg="gray"><Services /></Section>
             {/* 若無以下檔案，請暫時註解 */}
             <Section id="equipment"><Equipment /></Section>
-            <Section id="projects" bg="gray"><Projects /></Section>
+            <Box id="projects" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.paper' }}>
+              <Projects />
+            </Box>
             <Section id="contact" bg="white"><Contact /></Section>
           </Box>
           <Footer />

@@ -1,4 +1,4 @@
-# Logs
+`# Logs
 logs
 *.log
 npm-debug.log*
@@ -10,7 +10,14 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+electron-dist
 *.local
+
+# Large source videos (bundled separately by electron-builder)
+src/videos/
+
+# Symlinks to videos (generated locally)
+public/videos/
 
 # Editor directories and files
 .vscode/*

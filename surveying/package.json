@@ -1,13 +1,48 @@
 {
-  "name": "my-react-app",
+  "name": "yuhung-surveying",
+  "productName": "祐鴻測繪科技",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev":            "vite",
+    "build":          "vite build",
+    "lint":           "eslint .",
+    "preview":        "vite preview",
+    "electron:dev":   "concurrently \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "electron:pack":  "vite build && electron-builder --dir",
+    "electron:dist":  "vite build && electron-builder"
+  },
+  "build": {
+    "appId": "com.yuhung.surveying",
+    "productName": "祐鴻測繪科技",
+    "asar": true,
+    "directories": {
+      "output": "electron-dist"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "src/videos",
+        "to":   "videos",
+        "filter": ["*.mp4"]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        { "target": "dmg", "arch": ["arm64", "x64"] }
+      ]
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    }
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -26,12 +61,16 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.2.1",
+    "electron": "^41.1.0",
+    "electron-builder": "^26.8.1",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
     "vite": "^6.3.5",
-    "vite-plugin-singlefile": "^2.3.0"
+    "vite-plugin-singlefile": "^2.3.0",
+    "wait-on": "^9.0.4"
   }
 }

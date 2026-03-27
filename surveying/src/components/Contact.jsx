@@ -7,7 +7,9 @@ import {
   TextField,
   Button,
   Paper,
-  CircularProgress
+  CircularProgress,
+  Snackbar,
+  Alert,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { LanguageContext } from '../App';
@@ -25,6 +27,9 @@ export default function Contact() {
   });
   
   const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
+  const showSnackbar = (message, severity = 'success') => setSnackbar({ open: true, message, severity });
+  const closeSnackbar = () => setSnackbar(prev => ({ ...prev, open: false }));
 
   // ★★★ 請將此處替換為您的 Google Apps Script 網址 ★★★
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbziwmSL497aLnnrs-NblJmUsKPxQH7w1ciqCnqSa1qjZpHa1YZN65_hrbA6_t7Jbu75UQ/exec"; 
@@ -41,11 +46,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ★★★ 防呆檢查：驗證手機格式 (台灣 09 開頭 + 8碼) ★★★
+    // 驗證手機格式 (台灣 09 開頭 + 8碼)
     const phoneRegex = /^09\d{8}$/;
     if (!phoneRegex.test(formData.phone)) {
-      alert("請輸入正確的手機號碼格式 (例如：0912345678)");
-      return; 
+      showSnackbar(t.contact.alerts.phoneError, 'warning');
+      return;
     }
 
     setLoading(true);
@@ -58,20 +63,21 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      alert('感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫。');
+      showSnackbar(t.contact.alerts.success, 'success');
       
       // 清空表單
       setFormData({ name: '', phone: '', email: '', message: '', honeypot: '' }); 
 
     } catch (error) {
       console.error("Error:", error);
-      alert('發送失敗，請檢查網路連線或稍後再試。');
+      showSnackbar(t.contact.alerts.networkError, 'error');
     } finally {
       setLoading(false);
     }
   };
 
   return (
+  <>
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
       {/* ===== 標題 ===== */}
       <Box textAlign="center" mb={6}>
@@ -209,6 +215,59 @@ export default function Contact() {
           </Paper>
         </Grid>
       </Grid>
+      {/* ===== Google Maps 辦公室位置 ===== */}
+      <Box sx={{ mt: 8 }}>
+        <Typography variant="h5" color="primary" fontWeight="bold" textAlign="center" gutterBottom>
+          {t.contact.info.mapTitle}
+        </Typography>
+        <Grid container spacing={3} justifyContent="center" sx={{ mt: 1 }}>
+          <Grid item xs={12} md={5}>
+            <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
+              {t.contact.info.kaohsiung}
+            </Typography>
+            <Box sx={{ borderRadius: 3, overflow: 'hidden', boxShadow: 2 }}>
+              <iframe
+                title={t.contact.info.kaohsiung}
+                src="https://maps.google.com/maps?q=高雄市左營區曾子路533號&output=embed&hl=zh-TW&z=16"
+                width="100%"
+                height="280"
+                style={{ border: 0, display: 'block' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
+              {t.contact.info.kinmen}
+            </Typography>
+            <Box sx={{ borderRadius: 3, overflow: 'hidden', boxShadow: 2 }}>
+              <iframe
+                title={t.contact.info.kinmen}
+                src="https://maps.google.com/maps?q=金門縣金寧鄉頂埔下88-8號&output=embed&hl=zh-TW&z=16"
+                width="100%"
+                height="280"
+                style={{ border: 0, display: 'block' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
+
+    {/* ===== 通知 Snackbar ===== */}
+    <Snackbar
+      open={snackbar.open}
+      autoHideDuration={6000}
+      onClose={closeSnackbar}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+    >
+      <Alert onClose={closeSnackbar} severity={snackbar.severity} variant="filled" sx={{ width: '100%' }}>
+        {snackbar.message}
+      </Alert>
+    </Snackbar>
+  </>
   );
 }

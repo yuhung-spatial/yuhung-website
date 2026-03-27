@@ -86,7 +86,7 @@ export default function Hero() {
   return (
     <Box
       sx={{
-        height: '100vh',
+        height: { xs: '60vh', md: '72vh' },
         width: '100%',
         position: 'relative',
         overflow: 'hidden',
