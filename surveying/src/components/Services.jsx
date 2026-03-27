@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Box, Container, Typography, Grid, Paper } from '@mui/material';
+import React, { useContext, useState } from 'react';
+import { Box, Container, Typography, Grid, Paper, Skeleton } from '@mui/material';
 import { LanguageContext } from '../App';
 
 // 1. 引入您的本機圖片 (用於工程測量，因為這張最真實專業)
@@ -7,6 +7,7 @@ import Hero2 from '../assets/Hero2.jpg';
 
 export default function Services() {
   const { t } = useContext(LanguageContext);
+  const [imgLoaded, setImgLoaded] = useState(Array(4).fill(false));
 
   // 定義單張精選圖片 (對應四個服務項目)
   const serviceImages = [
@@ -64,18 +65,27 @@ export default function Services() {
               }}
             >
               {/* 左側：單張圖片 */}
-              <Box 
-                component="img"
-                src={item.image}
-                alt={item.title}
-                sx={{ 
-                  width: 160, 
-                  height: 160, 
-                  objectFit: 'cover', // 確保圖片填滿且不變形
-                  flexShrink: 0, 
-                  bgcolor: '#f0f0f0' 
-                }}
-              />
+              <Box sx={{ position: 'relative', width: 160, height: 160, flexShrink: 0 }}>
+                {!imgLoaded[index] && (
+                  <Skeleton variant="rectangular" width={160} height={160} animation="wave" />
+                )}
+                <Box
+                  component="img"
+                  src={item.image}
+                  alt={`${item.title} - 祐鴻測繪服務`}
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: 160,
+                    height: 160,
+                    objectFit: 'cover',
+                    opacity: imgLoaded[index] ? 1 : 0,
+                    transition: 'opacity 0.3s',
+                  }}
+                  onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[index] = true; return n; })}
+                />
+              </Box>
               
               {/* 右側：文字內容 */}
               <Box sx={{ p: 3 }}>

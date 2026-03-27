@@ -130,6 +130,35 @@ export default function Hero() {
         }}
       />
 
+      {/* --- 輪播指示點 --- */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 28,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: 1.5,
+          zIndex: 2,
+        }}
+      >
+        {heroSlides.map((_, idx) => (
+          <Box
+            key={idx}
+            onClick={() => setCurrentImageIndex(idx)}
+            sx={{
+              width: idx === currentImageIndex ? 28 : 8,
+              height: 8,
+              borderRadius: 4,
+              bgcolor: idx === currentImageIndex ? '#FF9900' : 'rgba(255,255,255,0.5)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              '&:hover': { bgcolor: '#FF9900', opacity: 0.8 },
+            }}
+          />
+        ))}
+      </Box>
+
       {/* --- 文字內容層 --- */}
       <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
         {/* 使用 key={currentImageIndex} 觸發文字切換時的動畫重播 */}

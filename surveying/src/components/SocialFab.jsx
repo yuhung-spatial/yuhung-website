@@ -1,5 +1,6 @@
 import { Stack, IconButton, Tooltip } from '@mui/material';
-import { FaLine } from "react-icons/fa"; // 引入 React Icons 的 LINE 圖示
+import PhoneIcon from '@mui/icons-material/Phone';
+import { FaLine } from "react-icons/fa";
 
 export default function SocialFab() {
   return (
@@ -29,6 +30,24 @@ export default function SocialFab() {
           }}
         >
           <FaLine size={26} />
+        </IconButton>
+      </Tooltip>
+
+      {/* --- 3. 一鍵撥話 --- */}
+      <Tooltip title="電話 / Phone" placement="left" arrow>
+        <IconButton
+          href="tel:+88673502272"
+          sx={{
+            bgcolor: '#003366',
+            color: 'white',
+            boxShadow: 3,
+            width: 48,
+            height: 48,
+            border: '2px solid white',
+            '&:hover': { bgcolor: '#FF9900' }
+          }}
+        >
+          <PhoneIcon fontSize="medium" />
         </IconButton>
       </Tooltip>
 

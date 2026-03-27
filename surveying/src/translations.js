@@ -70,6 +70,7 @@ export const resources = {
       info: {
         kaohsiung: "高雄辦公室",
         kinmen: "金門辦公室",
+        mapTitle: "辦公室位置",
       },
       alerts: {
         phoneError: "請輸入正確的手機號碼格式（例如：0912345678）",
@@ -162,6 +163,7 @@ export const resources = {
       info: {
         kaohsiung: "Kaohsiung Office",
         kinmen: "Kinmen Office",
+        mapTitle: "Office Locations",
       },
       alerts: {
         phoneError: "Please enter a valid phone number (e.g. 0912345678).",

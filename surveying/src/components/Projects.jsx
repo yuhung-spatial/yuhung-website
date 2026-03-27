@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { Box, Container, Typography, Grid, Paper } from '@mui/material';
+import React, { useContext, useState } from 'react';
+import { Box, Container, Typography, Grid, Skeleton } from '@mui/material';
 import { LanguageContext } from '../App';
 
 export default function Projects() {
   const { t } = useContext(LanguageContext);
+  const [imgLoaded, setImgLoaded] = useState(Array(3).fill(false));
 
   const projectImages = [
     "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop", // 公共工程
@@ -33,17 +34,22 @@ export default function Projects() {
               }}
             >
               {/* 背景圖 */}
-              <Box 
+              {!imgLoaded[index] && (
+                <Skeleton variant="rectangular" width="100%" height="100%" animation="wave" sx={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }} />
+              )}
+              <Box
                 component="img"
                 src={projectImages[index]}
-                alt={item.title}
-                sx={{ 
-                  width: '100%', 
-                  height: '100%', 
+                alt={`${item.title} - 祐鴻測繪案例`}
+                sx={{
+                  width: '100%',
+                  height: '100%',
                   objectFit: 'cover',
-                  transition: 'transform 0.5s ease',
-                  '&:hover': { transform: 'scale(1.1)' } // 圖片放大效果
+                  opacity: imgLoaded[index] ? 1 : 0,
+                  transition: 'opacity 0.3s, transform 0.5s ease',
+                  '&:hover': { transform: 'scale(1.1)' }
                 }}
+                onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[index] = true; return n; })}
               />
               
               {/* 漸層遮罩與文字 */}

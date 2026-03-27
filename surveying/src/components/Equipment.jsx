@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { Box, Container, Typography, Grid, Card, CardMedia, CardContent } from '@mui/material';
+import React, { useContext, useState } from 'react';
+import { Box, Container, Typography, Grid, Card, CardMedia, CardContent, Skeleton } from '@mui/material';
 import { LanguageContext } from '../App';
 
 export default function Equipment() {
   const { t } = useContext(LanguageContext);
+  const [imgLoaded, setImgLoaded] = useState(Array(4).fill(false));
 
   // 定義圖片 (不會隨語言改變)
   const equipmentImages = [
@@ -33,13 +34,19 @@ export default function Equipment() {
                 '&:hover': { transform: 'translateY(-10px)', boxShadow: 6 }
               }}
             >
-              <CardMedia
-                component="img"
-                height="200"
-                image={equipmentImages[index]}
-                alt={item.title}
-                sx={{ objectFit: 'cover' }}
-              />
+              <Box sx={{ position: 'relative', height: 200, bgcolor: '#f0f0f0' }}>
+                {!imgLoaded[index] && (
+                  <Skeleton variant="rectangular" width="100%" height={200} animation="wave" sx={{ position: 'absolute', top: 0, left: 0 }} />
+                )}
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={equipmentImages[index]}
+                  alt={`${item.title} - 祐鴻測繪儀器設備`}
+                  sx={{ objectFit: 'cover', opacity: imgLoaded[index] ? 1 : 0, transition: 'opacity 0.3s' }}
+                  onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[index] = true; return n; })}
+                />
+              </Box>
               <CardContent>
                 <Typography variant="h6" fontWeight="bold" gutterBottom color="primary">
                   {item.title}
