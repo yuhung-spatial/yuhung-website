@@ -52,9 +52,10 @@ export const resources = {
       title: "經典案例",
       subtitle: "累積多年的工程實績，是我們專業能力的最佳證明",
       items: [
-        { title: "公共工程測繪", desc: "協助政府機關進行道路、橋樑及公共設施之精密測量。" },
+        { title: "公共工程測繪", desc: "協助政府機關進行道路、橋樑及公共設施之精密測量。", badge: "歷史建築監測作業" },
         { title: "古蹟數位保存", desc: "運用雷射掃描技術，完整記錄歷史建築幾何資訊。" },
         { title: "大面積地形測量", desc: "無人機航拍結合地面控制點，產製高精度正射影像。" },
+        { title: "文化・保存・傳承", desc: "以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間。" },
       ]
     },
     contact: {
@@ -145,9 +146,10 @@ export const resources = {
       title: "Classic Projects",
       subtitle: "Years of engineering achievements are the best proof of our professional capabilities.",
       items: [
-        { title: "Public Works Survey", desc: "Precise surveying for roads, bridges, and public facilities." },
+        { title: "Public Works Survey", desc: "Precise surveying for roads, bridges, and public facilities.", badge: "Historic Building Monitoring" },
         { title: "Heritage Preservation", desc: "Using laser scanning to record historical building geometries." },
         { title: "Large-scale Mapping", desc: "UAV mapping combined with ground control points for orthophotos." },
+        { title: "Culture · Preservation · Heritage", desc: "Using digital technology to preserve precious cultural memories and historical spaces for future generations." },
       ]
     },
     contact: {
