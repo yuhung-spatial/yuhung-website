@@ -220,8 +220,8 @@ export default function Contact() {
         <Typography variant="h5" color="primary" fontWeight="bold" textAlign="center" gutterBottom>
           {t.contact.info.mapTitle}
         </Typography>
-        <Grid container spacing={3} sx={{ mt: 1 }}>
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={3} justifyContent="center" sx={{ mt: 1 }}>
+          <Grid item xs={12} md={5}>
             <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
               {t.contact.info.kaohsiung}
             </Typography>
@@ -237,7 +237,7 @@ export default function Contact() {
               />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
               {t.contact.info.kinmen}
             </Typography>
