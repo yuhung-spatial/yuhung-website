@@ -4,16 +4,22 @@ import { LanguageContext } from '../App';
 
 import video1 from '../videos/東蕭村蕭顯紀洋樓.mp4';
 import video2 from '../videos/東蕭村蕭顯傳洋樓.mp4';
-import banner1 from '../assets/banner.jpg';
-import banner2 from '../assets/banner2.jpg';
-import banner3 from '../assets/banner3.jpg';
+import terrainHosaa from '../assets/terrain/hosaa.jpg';
+import terrainXishan from '../assets/terrain/xishan.jpg';
+import terrainNqu from '../assets/terrain/nqu.jpg';
+import terrainLongko from '../assets/terrain/longko.jpg';
 
 const heritageVideos = [
   { src: video1, label: '東蕭村蕭顯紀洋樓' },
   { src: video2, label: '東蕭村蕭顯傳洋樓' },
 ];
 
-const terrainSlides = [banner1, banner2, banner3];
+const terrainSlides = [
+  { img: terrainHosaa,  label: '后沙' },
+  { img: terrainXishan, label: '西山' },
+  { img: terrainNqu,    label: '金大' },
+  { img: terrainLongko, label: '嚨口' },
+];
 
 export default function Projects() {
   const { t, lang } = useContext(LanguageContext);
@@ -24,7 +30,7 @@ export default function Projects() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTerrainIndex(prev => (prev + 1) % terrainSlides.length);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -90,12 +96,12 @@ export default function Projects() {
                 />
               )}
 
-              {/* ── 大面積地形測量：幻燈片 ── */}
+              {/* ── 大面積地形測量：正射影像幻燈片 ── */}
               {index === 2 && terrainSlides.map((slide, idx) => (
                 <Box
                   key={idx}
                   sx={{
-                    backgroundImage: `url(${slide})`,
+                    backgroundImage: `url(${slide.img})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     position: 'absolute',
@@ -127,30 +133,36 @@ export default function Projects() {
                 </Typography>
               </Box>
 
-              {/* 地形測量幻燈片指示點 */}
+              {/* 地形測量幻燈片指示點（含地點名稱） */}
               {index === 2 && (
                 <Box
                   sx={{
                     position: 'absolute',
                     bottom: 20, right: 24,
                     display: 'flex',
-                    gap: 1,
+                    gap: 1.5,
                     zIndex: 3,
                   }}
                 >
-                  {terrainSlides.map((_, idx) => (
+                  {terrainSlides.map((slide, idx) => (
                     <Box
                       key={idx}
                       onClick={() => setTerrainIndex(idx)}
                       sx={{
-                        width: idx === terrainIndex ? 24 : 8,
-                        height: 8,
-                        borderRadius: 4,
-                        bgcolor: idx === terrainIndex ? '#FF9900' : 'rgba(255,255,255,0.5)',
+                        px: 1.5, py: 0.5,
+                        borderRadius: 2,
+                        bgcolor: idx === terrainIndex ? '#FF9900' : 'rgba(255,255,255,0.3)',
+                        color: 'white',
+                        fontSize: '0.75rem',
+                        fontWeight: idx === terrainIndex ? 'bold' : 'normal',
                         cursor: 'pointer',
                         transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(4px)',
+                        '&:hover': { bgcolor: '#FF9900' },
                       }}
-                    />
+                    >
+                      {slide.label}
+                    </Box>
                   ))}
                 </Box>
               )}
