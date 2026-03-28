@@ -44,32 +44,36 @@ export default function Services() {
         </Typography>
       </Box>
 
-      {/* 服務卡片列表 (置中) */}
-      <Grid container spacing={4} justifyContent="center">
+      {/* 服務卡片列表 2×2 格狀排列 */}
+      <Grid container spacing={4}>
         {servicesData.map((item, index) => (
-          <Grid item xs={12} md={6} key={index}>
-            <Paper 
-              elevation={0} 
-              sx={{ 
-                p: 0, 
-                display: 'flex', 
-                alignItems: 'center', // 垂直置中對齊
-                borderRadius: 4, 
-                border: '1px solid #eee', 
-                overflow: 'hidden', 
-                transition: '0.3s', 
-                height: '100%', 
-                '&:hover': { 
-                  transform: 'translateY(-5px)', 
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)', 
-                  borderColor: '#FF9900' 
-                } 
+          <Grid item xs={12} sm={6} key={index}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 4,
+                border: '1px solid #eee',
+                overflow: 'hidden',
+                height: '100%',
+                transition: '0.3s',
+                '&:hover': {
+                  transform: 'translateY(-6px)',
+                  boxShadow: '0 12px 32px rgba(0,0,0,0.12)',
+                  borderColor: '#FF9900',
+                },
               }}
             >
-              {/* 左側：單張圖片 */}
-              <Box sx={{ position: 'relative', width: 160, height: 160, flexShrink: 0 }}>
+              {/* 上方：圖片 */}
+              <Box sx={{ position: 'relative', width: '100%', pt: '56.25%' /* 16:9 */ }}>
                 {!imgLoaded[index] && (
-                  <Skeleton variant="rectangular" width={160} height={160} animation="wave" />
+                  <Skeleton
+                    variant="rectangular"
+                    sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    animation="wave"
+                  />
                 )}
                 <Box
                   component="img"
@@ -77,24 +81,22 @@ export default function Services() {
                   alt={`${item.title} - 祐鴻測繪服務`}
                   sx={{
                     position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: 160,
-                    height: 160,
+                    top: 0, left: 0,
+                    width: '100%', height: '100%',
                     objectFit: 'cover',
                     opacity: imgLoaded[index] ? 1 : 0,
-                    transition: 'opacity 0.3s',
+                    transition: 'opacity 0.4s',
                   }}
                   onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[index] = true; return n; })}
                 />
               </Box>
-              
-              {/* 右側：文字內容 */}
-              <Box sx={{ p: 3 }}>
+
+              {/* 下方：文字內容 */}
+              <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
                   {item.title}
                 </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
                   {item.desc}
                 </Typography>
               </Box>
