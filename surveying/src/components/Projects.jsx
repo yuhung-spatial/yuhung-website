@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, Grid } from '@mui/material';
 import { LanguageContext } from '../App';
 
 import terrainHosaa  from '../assets/terrain/hosaa.jpg';
@@ -60,18 +60,18 @@ export default function Projects() {
     return () => clearInterval(id);
   }, []);
 
-  const CARD = { borderRadius: 3, overflow: 'hidden', boxShadow: '0 6px 28px rgba(0,0,0,0.18)', mb: 4 };
-  const H    = { xs: 280, md: 460 };
+  const CARD = { borderRadius: 3, overflow: 'hidden', boxShadow: '0 6px 28px rgba(0,0,0,0.18)', height: '100%' };
+  const H    = { xs: 220, sm: 280, md: 360 };
 
   // 下方文字遮罩
   const TextOverlay = ({ title, desc }) => (
     <Box sx={{
       position: 'absolute', bottom: 0, left: 0, right: 0,
       background: 'linear-gradient(transparent, rgba(0,0,0,0.82))',
-      p: { xs: 3, md: 4 }, zIndex: 5,
+      p: { xs: 1.5, md: 3 }, zIndex: 5,
     }}>
-      <Typography variant="h5" sx={{ color: '#fff', fontWeight: 700, mb: 0.5 }}>{title}</Typography>
-      <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.85)' }}>{desc}</Typography>
+      <Typography sx={{ color: '#fff', fontWeight: 700, mb: 0.3, fontSize: { xs: '0.85rem', sm: '1rem', md: '1.25rem' } }}>{title}</Typography>
+      <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.95rem' }, display: { xs: 'none', sm: 'block' } }}>{desc}</Typography>
     </Box>
   );
 
@@ -102,84 +102,88 @@ export default function Projects() {
         </Typography>
       </Box>
 
-      {/* ── 01 公共工程測繪 ── */}
-      <Box sx={{ ...CARD, position: 'relative', height: H }}>
-        {MONITOR.map((src, i) => (
-          <Box key={i} component="img" src={src} alt=""
-            sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              objectFit: 'cover', opacity: i === mi ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
-        ))}
-        <TextOverlay title={items[0]?.title || '公共工程測繪'} desc={items[0]?.desc} />
-        <Box sx={{ position: 'absolute', top: 16, right: 16, zIndex: 6,
-          bgcolor: '#1565c0', color: '#fff', px: 1.5, py: 0.5,
-          borderRadius: 2, fontSize: '0.72rem', fontWeight: 700 }}>
-          {items[0]?.badge || '歷史建築監測作業'}
-        </Box>
-      </Box>
+      {/* 四宮格 Grid */}
+      <Grid container spacing={{ xs: 2, md: 3 }}>
 
-      {/* ── 02 古蹟數位保存（影片 + 手動選擇器）── */}
-      <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
-        {/* 一次只渲染當前影片，避免同時載入大檔 */}
-        <Box key={hi} component="video"
-          src={HERITAGE_VIDS[hi].src}
-          autoPlay muted loop playsInline
-          sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-        <Box sx={{
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)', zIndex: 2,
-        }} />
-        <TextOverlay title={items[1]?.title || '古蹟數位保存'} desc={items[1]?.desc} />
-        {/* 影片選擇器 */}
-        <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 1 }}>
-          {HERITAGE_VIDS.map((v, i) => (
-            <Btn key={i} label={v.label} active={i === hi} color="#8d6e63" onClick={() => setHi(i)} />
-          ))}
-        </Box>
-      </Box>
+        {/* ── 01 公共工程測繪 ── */}
+        <Grid item xs={6}>
+          <Box sx={{ ...CARD, position: 'relative', height: H }}>
+            {MONITOR.map((src, i) => (
+              <Box key={i} component="img" src={src} alt=""
+                sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                  objectFit: 'cover', opacity: i === mi ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
+            ))}
+            <TextOverlay title={items[0]?.title || '公共工程測繪'} desc={items[0]?.desc} />
+            <Box sx={{ position: 'absolute', top: { xs: 8, md: 16 }, right: { xs: 8, md: 16 }, zIndex: 6,
+              bgcolor: '#1565c0', color: '#fff', px: 1, py: 0.4,
+              borderRadius: 2, fontSize: { xs: '0.6rem', md: '0.72rem' }, fontWeight: 700 }}>
+              {items[0]?.badge || '歷史建築監測作業'}
+            </Box>
+          </Box>
+        </Grid>
 
-      {/* ── 03 大面積地形測量 ── */}
-      <Box sx={{ ...CARD, position: 'relative', height: H }}>
-        {TERRAIN.map((src, i) => (
-          <Box key={i} component="img" src={src} alt=""
-            sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              objectFit: 'cover', opacity: i === ti ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
-        ))}
-        <TextOverlay title={items[2]?.title || '大面積地形測量'} desc={items[2]?.desc} />
-        <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 1 }}>
-          {TERRAIN_LABELS.map((label, i) => (
-            <Btn key={label} label={label} active={i === ti} color="#e65100" onClick={() => setTi(i)} />
-          ))}
-        </Box>
-      </Box>
+        {/* ── 02 古蹟數位保存 ── */}
+        <Grid item xs={6}>
+          <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
+            <Box key={hi} component="video"
+              src={HERITAGE_VIDS[hi].src}
+              autoPlay muted loop playsInline
+              sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)', zIndex: 2 }} />
+            <TextOverlay title={items[1]?.title || '古蹟數位保存'} desc={items[1]?.desc} />
+            <Box sx={{ position: 'absolute', bottom: { xs: 48, md: 68 }, right: { xs: 6, md: 16 }, zIndex: 6, display: 'flex', gap: 0.5 }}>
+              {HERITAGE_VIDS.map((v, i) => (
+                <Btn key={i} label={v.label} active={i === hi} color="#8d6e63" onClick={() => setHi(i)} />
+              ))}
+            </Box>
+          </Box>
+        </Grid>
 
-      {/* ── 04 文化・保存・傳承（影片幻燈片，每 5 秒自動切換）── */}
-      <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
-        <Box key={ci} component="video"
-          src={CULTURE_VIDS[ci]}
-          autoPlay muted loop playsInline
-          sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-        <Box sx={{
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 60%)', zIndex: 2,
-        }} />
-        <TextOverlay
-          title={items[3]?.title || '文化・保存・傳承'}
-          desc={items[3]?.desc || '以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間。'}
-        />
-        {/* 幻燈片指示點 */}
-        <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 1 }}>
-          {CULTURE_VIDS.map((_, i) => (
-            <Box key={i} onClick={() => setCi(i)} sx={{
-              width: 10, height: 10, borderRadius: '50%', cursor: 'pointer',
-              bgcolor: i === ci ? '#fff' : 'rgba(255,255,255,0.35)',
-              transition: 'background 0.3s',
-            }} />
-          ))}
-        </Box>
-      </Box>
+        {/* ── 03 大面積地形測量 ── */}
+        <Grid item xs={6}>
+          <Box sx={{ ...CARD, position: 'relative', height: H }}>
+            {TERRAIN.map((src, i) => (
+              <Box key={i} component="img" src={src} alt=""
+                sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                  objectFit: 'cover', opacity: i === ti ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
+            ))}
+            <TextOverlay title={items[2]?.title || '大面積地形測量'} desc={items[2]?.desc} />
+            <Box sx={{ position: 'absolute', bottom: { xs: 48, md: 68 }, right: { xs: 6, md: 16 }, zIndex: 6, display: 'flex', gap: 0.5 }}>
+              {TERRAIN_LABELS.map((label, i) => (
+                <Btn key={label} label={label} active={i === ti} color="#e65100" onClick={() => setTi(i)} />
+              ))}
+            </Box>
+          </Box>
+        </Grid>
 
+        {/* ── 04 文化・保存・傳承 ── */}
+        <Grid item xs={6}>
+          <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
+            <Box key={ci} component="video"
+              src={CULTURE_VIDS[ci]}
+              autoPlay muted loop playsInline
+              sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+              background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 60%)', zIndex: 2 }} />
+            <TextOverlay
+              title={items[3]?.title || '文化・保存・傳承'}
+              desc={items[3]?.desc || '以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間。'}
+            />
+            <Box sx={{ position: 'absolute', bottom: { xs: 48, md: 68 }, right: { xs: 6, md: 16 }, zIndex: 6, display: 'flex', gap: 0.5 }}>
+              {CULTURE_VIDS.map((_, i) => (
+                <Box key={i} onClick={() => setCi(i)} sx={{
+                  width: { xs: 7, md: 10 }, height: { xs: 7, md: 10 }, borderRadius: '50%', cursor: 'pointer',
+                  bgcolor: i === ci ? '#fff' : 'rgba(255,255,255,0.35)', transition: 'background 0.3s',
+                }} />
+              ))}
+            </Box>
+          </Box>
+        </Grid>
+
+      </Grid>
     </Container>
   );
 }
