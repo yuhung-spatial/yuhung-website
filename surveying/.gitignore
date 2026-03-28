@@ -13,9 +13,6 @@ dist-ssr
 electron-dist
 *.local
 
-# Large source videos (bundled separately by electron-builder)
-src/videos/
-
 # Symlinks to videos (generated locally)
 public/videos/
 
