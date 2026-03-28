@@ -44,17 +44,17 @@ export default function Services() {
         </Typography>
       </Box>
 
-      {/* 服務卡片列表 2×2 格狀排列 */}
-      <Grid container spacing={4}>
+      {/* 服務卡片：四宮格（任何螢幕尺寸皆兩欄兩列） */}
+      <Grid container spacing={{ xs: 2, md: 4 }}>
         {servicesData.map((item, index) => (
-          <Grid item xs={12} sm={6} key={index}>
+          <Grid item xs={6} key={index}>
             <Paper
               elevation={0}
               sx={{
                 p: 0,
                 display: 'flex',
                 flexDirection: 'column',
-                borderRadius: 4,
+                borderRadius: { xs: 2, md: 4 },
                 border: '1px solid #eee',
                 overflow: 'hidden',
                 height: '100%',
@@ -66,8 +66,8 @@ export default function Services() {
                 },
               }}
             >
-              {/* 上方：圖片 */}
-              <Box sx={{ position: 'relative', width: '100%', pt: '56.25%' /* 16:9 */ }}>
+              {/* 上方：圖片 16:9 */}
+              <Box sx={{ position: 'relative', width: '100%', pt: '56.25%' }}>
                 {!imgLoaded[index] && (
                   <Skeleton
                     variant="rectangular"
@@ -92,11 +92,21 @@ export default function Services() {
               </Box>
 
               {/* 下方：文字內容 */}
-              <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
+              <Box sx={{ p: { xs: 1.5, md: 3 }, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  color="primary"
+                  fontWeight="bold"
+                  sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' } }}
+                >
                   {item.title}
                 </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ lineHeight: 1.7, fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' }, display: { xs: 'none', sm: 'block' } }}
+                >
                   {item.desc}
                 </Typography>
               </Box>
