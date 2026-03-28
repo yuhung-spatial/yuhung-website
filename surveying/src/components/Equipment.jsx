@@ -21,9 +21,9 @@ export default function Equipment() {
         <Typography variant="subtitle1" color="text.secondary">{t.equipment.subtitle}</Typography>
       </Box>
 
-      <Grid container spacing={4}>
+      <Grid container spacing={{ xs: 2, md: 4 }}>
         {t.equipment.items.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={6} key={index}>
             <Card 
               elevation={0}
               sx={{ 

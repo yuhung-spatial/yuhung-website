@@ -119,7 +119,6 @@ export default function Projects() {
 
       {/* ── 02 古蹟數位保存（影片 + 手動選擇器）── */}
       <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
-        {/* 一次只渲染當前影片，避免同時載入大檔 */}
         <Box key={hi} component="video"
           src={HERITAGE_VIDS[hi].src}
           autoPlay muted loop playsInline
@@ -130,7 +129,6 @@ export default function Projects() {
           background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)', zIndex: 2,
         }} />
         <TextOverlay title={items[1]?.title || '古蹟數位保存'} desc={items[1]?.desc} />
-        {/* 影片選擇器 */}
         <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 1 }}>
           {HERITAGE_VIDS.map((v, i) => (
             <Btn key={i} label={v.label} active={i === hi} color="#8d6e63" onClick={() => setHi(i)} />
@@ -168,7 +166,6 @@ export default function Projects() {
           title={items[3]?.title || '文化・保存・傳承'}
           desc={items[3]?.desc || '以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間。'}
         />
-        {/* 幻燈片指示點 */}
         <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 1 }}>
           {CULTURE_VIDS.map((_, i) => (
             <Box key={i} onClick={() => setCi(i)} sx={{
