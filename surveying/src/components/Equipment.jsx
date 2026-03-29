@@ -26,18 +26,11 @@ export default function Equipment() {
         <Typography variant="subtitle1" color="text.secondary">{t.equipment.subtitle}</Typography>
       </Box>
 
-<<<<<<< HEAD
       {/* 四宮格卡片 - 置中且固定尺寸 */}
       <Grid container spacing={4} justifyContent="center" sx={{ maxWidth: 960, mx: 'auto' }}>
         {t.equipment.items.map((item, index) => (
           <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card
-=======
-      <Grid container spacing={{ xs: 2, md: 4 }}>
-        {t.equipment.items.map((item, index) => (
-          <Grid item xs={6} key={index}>
-            <Card 
->>>>>>> cfaef25962634b6188883aabd25b7d49af14c527
               elevation={0}
               sx={{
                 width: '100%',
