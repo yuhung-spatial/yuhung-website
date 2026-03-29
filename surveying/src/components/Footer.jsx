@@ -95,9 +95,10 @@ export default function Footer() {
 
         {/* 社群按鈕 */}
         <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-          <Tooltip title="Facebook"><IconButton component={Link} href="https://www.facebook.com/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#1877F2', borderColor: '#1877F2' } }}><FacebookIcon /></IconButton></Tooltip>
-          <Tooltip title="Instagram"><IconButton component={Link} href="https://www.instagram.com/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#E4405F', borderColor: '#E4405F' } }}><InstagramIcon /></IconButton></Tooltip>
-          <Tooltip title="LINE"><IconButton component={Link} href="https://lin.ee/..." target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#00C300', borderColor: '#00C300' } }}><FaLine size={20} /></IconButton></Tooltip>
+          <Tooltip title="Facebook"><IconButton component={Link} href="https://www.facebook.com/p/%E7%A5%90%E9%B4%BB%E7%A9%BA%E9%96%93%E8%B3%87%E8%A8%8A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-100054363755313/" target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#1877F2', borderColor: '#1877F2' } }}><FacebookIcon /></IconButton></Tooltip>
+          <Tooltip title="Instagram"><IconButton component={Link} href="https://www.instagram.com/yuhung_gs?igsh=MXJiNDAyMWlhYmZoNQ==" target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#E4405F', borderColor: '#E4405F' } }}><InstagramIcon /></IconButton></Tooltip>
+          <Tooltip title="LINE（空間資訊）"><IconButton component={Link} href="https://lin.ee/0D2qPhg" target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#00C300', borderColor: '#00C300' } }}><FaLine size={20} /></IconButton></Tooltip>
+          <Tooltip title="LINE（測繪科技）"><IconButton component={Link} href="https://lin.ee/T1VINXX" target="_blank" sx={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', '&:hover': { bgcolor: '#00C300', borderColor: '#00C300' } }}><FaLine size={20} /></IconButton></Tooltip>
         </Stack>
 
         <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)', mb: 3 }} />

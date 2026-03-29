@@ -13,23 +13,17 @@ import mon4 from '../assets/monitoring/monitoring_4.jpg';
 import mon5 from '../assets/monitoring/monitoring_5.jpg';
 import culture1 from '../assets/culture/culture_1.mp4';
 import culture2 from '../assets/culture/culture_2.mp4';
-// 古蹟影片：以字串路徑動態決定（避免 Vite 2 GiB 打包限制）
-// Electron 打包後透過 app:// 協定提供；瀏覽器開發模式透過 Vite public/ 提供
-const IS_ELECTRON = typeof window !== 'undefined' &&
-  window.navigator.userAgent.toLowerCase().includes('electron');
-const VP = (name) => IS_ELECTRON ? `app://localhost/videos/${name}` : `/videos/${name}`;
-const heritageV1 = VP('東蕭村蕭顯紀洋樓.mp4');
-const heritageV2 = VP('東蕭村蕭顯傳洋樓.mp4');
-const heritageV3 = VP('珠山下三落點雲動畫.mp4');
+// 古蹟影片：本機檔案（離線可用）
+import heritageMatsu from '../assets/heritage_matsu.mp4';
+import heritageZhushan from '../assets/heritage_zhushan.mp4';
 
 const TERRAIN        = [terrainHosaa, terrainXishan, terrainNqu, terrainLongko];
 const TERRAIN_LABELS = ['后沙', '西山', '金大', '嚨口'];
 const MONITOR        = [mon1, mon2, mon3, mon4, mon5];
 const CULTURE_VIDS   = [culture1, culture2];
 const HERITAGE_VIDS  = [
-  { src: heritageV1, label: '蕭顯紀洋樓' },
-  { src: heritageV2, label: '蕭顯傳洋樓' },
-  { src: heritageV3, label: '珠山下三落' },
+  { src: heritageMatsu, label: '馬祖梅石軍官特約茶室' },
+  { src: heritageZhushan, label: '金門珠山下三落' },
 ];
 
 export default function Projects() {
@@ -117,7 +111,7 @@ export default function Projects() {
         </Box>
       </Box>
 
-      {/* ── 02 古蹟數位保存（影片 + 手動選擇器）── */}
+      {/* ── 02 古蹟數位保存（本機影片 + 手動選擇器）── */}
       <Box sx={{ ...CARD, position: 'relative', height: H, bgcolor: '#000' }}>
         <Box key={hi} component="video"
           src={HERITAGE_VIDS[hi].src}

@@ -1,40 +1,31 @@
 import React, { useContext, useState } from 'react';
-import { Box, Container, Typography, Grid, Paper, Skeleton } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, Skeleton } from '@mui/material';
 import { LanguageContext } from '../App';
 
-// 1. 引入您的本機圖片 (用於工程測量，因為這張最真實專業)
+// 引入本機圖片
 import Hero2 from '../assets/Hero2.jpg';
-import laserScan from '../assets/service_laser_scan.png';
-import gisMap from '../assets/service_gis.png';
+import laserScan from '../assets/service_laser_scan_new.jpg';
+import serviceUav from '../assets/service_uav.webp';
+import gisMap from '../assets/service_gis_kinmen.jpg';
 
 export default function Services() {
   const { t } = useContext(LanguageContext);
   const [imgLoaded, setImgLoaded] = useState(Array(4).fill(false));
 
-  // 定義單張精選圖片 (對應四個服務項目)
   const serviceImages = [
-    // 1. 工程測量：使用您上傳的真實測量照片 (Hero2)，強調專業現場感
     Hero2,
-    
-    // 2. 3D 雷射掃描：真實點雲掃描成果圖
     laserScan,
-    
-    // 3. UAV 無人機航測：無人機飛行特寫 (Unsplash)
-    'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=1000&auto=format&fit=crop',
-    
-    // 4. GIS 空間資訊：管線竣工圖示意圖
+    serviceUav,
     gisMap,
   ];
 
-  // 合併翻譯文字與圖片
   const servicesData = t.services.items.map((item, index) => ({
     ...item,
-    image: serviceImages[index] // 改為單張圖片
+    image: serviceImages[index]
   }));
 
   return (
     <Container>
-      {/* 標題區塊 (置中) */}
       <Box textAlign="center" mb={6}>
         <Typography variant="h3" color="primary" fontWeight="bold">
           {t.services.title}
@@ -44,6 +35,34 @@ export default function Services() {
         </Typography>
       </Box>
 
+<<<<<<< HEAD
+      {/* 四宮格卡片 - 置中且固定尺寸 */}
+      <Grid container spacing={4} justifyContent="center" sx={{ maxWidth: 960, mx: 'auto' }}>
+        {servicesData.map((item, index) => (
+          <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Card
+              elevation={0}
+              sx={{
+                width: '100%',
+                maxWidth: 420,
+                height: 440,
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 4,
+                border: '1px solid #eee',
+                overflow: 'hidden',
+                transition: '0.3s',
+                '&:hover': {
+                  transform: 'translateY(-8px)',
+                  boxShadow: '0 12px 32px rgba(0,0,0,0.12)',
+                  borderColor: '#FF9900'
+                }
+              }}
+            >
+              <Box sx={{ position: 'relative', height: 260, flexShrink: 0, bgcolor: '#f0f0f0' }}>
+                {!imgLoaded[index] && (
+                  <Skeleton variant="rectangular" width="100%" height={260} animation="wave" sx={{ position: 'absolute', top: 0, left: 0 }} />
+=======
       {/* 服務卡片：四宮格（任何螢幕尺寸皆兩欄兩列） */}
       <Grid container spacing={{ xs: 2, md: 4 }}>
         {servicesData.map((item, index) => (
@@ -74,6 +93,7 @@ export default function Services() {
                     sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                     animation="wave"
                   />
+>>>>>>> cfaef25962634b6188883aabd25b7d49af14c527
                 )}
                 <Box
                   component="img"
@@ -81,8 +101,15 @@ export default function Services() {
                   alt={`${item.title} - 祐鴻測繪服務`}
                   sx={{
                     position: 'absolute',
+<<<<<<< HEAD
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+=======
                     top: 0, left: 0,
                     width: '100%', height: '100%',
+>>>>>>> cfaef25962634b6188883aabd25b7d49af14c527
                     objectFit: 'cover',
                     opacity: imgLoaded[index] ? 1 : 0,
                     transition: 'opacity 0.4s',
@@ -90,6 +117,13 @@ export default function Services() {
                   onLoad={() => setImgLoaded(prev => { const n = [...prev]; n[index] = true; return n; })}
                 />
               </Box>
+<<<<<<< HEAD
+              <CardContent sx={{ p: 3, flexGrow: 1 }}>
+                <Typography variant="h5" gutterBottom color="primary" fontWeight="bold">
+                  {item.title}
+                </Typography>
+                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+=======
 
               {/* 下方：文字內容 */}
               <Box sx={{ p: { xs: 1.5, md: 3 }, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
@@ -107,10 +141,11 @@ export default function Services() {
                   color="text.secondary"
                   sx={{ lineHeight: 1.7, fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' }, display: { xs: 'none', sm: 'block' } }}
                 >
+>>>>>>> cfaef25962634b6188883aabd25b7d49af14c527
                   {item.desc}
                 </Typography>
-              </Box>
-            </Paper>
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>

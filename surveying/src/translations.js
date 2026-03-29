@@ -42,7 +42,7 @@ export const resources = {
       title: "儀器設備",
       subtitle: "工欲善其事，必先利其器。我們採用業界頂尖測繪儀器。",
       items: [
-        { title: "高精度全站儀", desc: "Leica/Topcon 等級測量儀器，確保毫米級精度。" },
+        { title: "高精度全站儀", desc: "Trimble 等級測量儀器，確保毫米級精度。" },
         { title: "GNSS 衛星定位儀", desc: "RTK 即時動態定位，支援多星系訊號接收。" },
         { title: "地面三維雷射掃描儀", desc: "每秒百萬點掃描速率，快速建立數位孿生模型。" },
         { title: "測繪級無人機", desc: "搭載高畫質相機與光達 (LiDAR)，大範圍地形測繪首選。" },
@@ -123,23 +123,23 @@ export const resources = {
       }
     },
     services: {
-      title: "Our Services",
-      subtitle: "Dynamic and precise spatial solutions using advanced instruments.",
+      title: "Professional Services",
+      subtitle: "Combining advanced instruments and expertise to deliver precise, end-to-end spatial solutions.",
       items: [
-        { title: "Engineering Survey", desc: "Construction stakeout, displacement monitoring, ensuring precision and safety." },
-        { title: "3D Laser Scanning", desc: "Reverse engineering, digital preservation, BIM modeling." },
-        { title: "UAV Aerial Survey", desc: "Large-scale orthophotos, oblique photography modeling." },
-        { title: "GIS Spatial Info", desc: "WebGIS platform construction, map digitization." },
+        { title: "Engineering Surveying", desc: "Construction stakeout, deformation monitoring, and leveling — ensuring millimeter-level accuracy and on-site safety." },
+        { title: "3D Laser Scanning", desc: "High-density point cloud capture for reverse engineering, heritage preservation, and BIM model creation." },
+        { title: "UAV Aerial Mapping", desc: "Large-area orthoimagery, oblique photogrammetry, and terrain modeling through efficient aerial operations." },
+        { title: "GIS & Spatial Data", desc: "WebGIS platform development, map digitization, and utility pipeline database management systems." },
       ]
     },
     equipment: {
-      title: "Equipment",
-      subtitle: "We use industry-leading surveying instruments to ensure the best results.",
+      title: "Our Equipment",
+      subtitle: "Quality results start with the right tools — we deploy industry-leading surveying instruments.",
       items: [
-        { title: "Total Station", desc: "Leica/Topcon grade instruments ensuring millimeter-level precision." },
-        { title: "GNSS Receiver", desc: "Real-time kinematic (RTK) positioning with multi-constellation support." },
-        { title: "3D Laser Scanner", desc: "Million points per second scanning for rapid digital twin creation." },
-        { title: "Surveying UAV", desc: "Equipped with high-res cameras and LiDAR for large-scale mapping." },
+        { title: "High-Precision Total Station", desc: "Trimble grade instruments delivering millimeter-level measurement accuracy." },
+        { title: "GNSS RTK Receiver", desc: "Real-time kinematic positioning with multi-constellation satellite signal support." },
+        { title: "Terrestrial 3D Laser Scanner", desc: "Captures millions of points per second to rapidly build digital twin models." },
+        { title: "Survey-Grade UAV", desc: "Equipped with high-resolution cameras and LiDAR sensors for large-scale terrain mapping." },
       ]
     },
     projects: {
