@@ -215,46 +215,7 @@ export default function Contact() {
           </Paper>
         </Grid>
       </Grid>
-      {/* ===== Google Maps 辦公室位置 ===== */}
-      <Box sx={{ mt: 8 }}>
-        <Typography variant="h5" color="primary" fontWeight="bold" textAlign="center" gutterBottom>
-          {t.contact.info.mapTitle}
-        </Typography>
-        <Grid container spacing={3} justifyContent="center" sx={{ mt: 1 }}>
-          <Grid item xs={12} md={5}>
-            <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
-              {t.contact.info.kaohsiung}
-            </Typography>
-            <Box sx={{ borderRadius: 3, overflow: 'hidden', boxShadow: 2 }}>
-              <iframe
-                title={t.contact.info.kaohsiung}
-                src="https://maps.google.com/maps?q=高雄市左營區曾子路533號&output=embed&hl=zh-TW&z=16"
-                width="100%"
-                height="280"
-                style={{ border: 0, display: 'block' }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={5}>
-            <Typography variant="h6" color="secondary" fontWeight="bold" gutterBottom textAlign="center">
-              {t.contact.info.kinmen}
-            </Typography>
-            <Box sx={{ borderRadius: 3, overflow: 'hidden', boxShadow: 2 }}>
-              <iframe
-                title={t.contact.info.kinmen}
-                src="https://maps.google.com/maps?q=金門縣金寧鄉頂埔下88-8號&output=embed&hl=zh-TW&z=16"
-                width="100%"
-                height="280"
-                style={{ border: 0, display: 'block' }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+      {/* Google Maps 已移至 Footer */}
     </Container>
 
     {/* ===== 通知 Snackbar ===== */}

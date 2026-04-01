@@ -40,14 +40,25 @@ export default function Footer() {
           <Typography variant="body2" sx={{ opacity: 0.6 }}>{t.hero.title}</Typography>
         </Box>
 
-        {/* 雙據點資訊 */}
+        {/* 雙據點資訊（含地圖） */}
         <Grid container spacing={4} justifyContent="center" sx={{ mb: 4 }}>
           {/* 高雄 */}
           <Grid item xs={12} sm={6}>
             <Box sx={{ bgcolor: 'rgba(255,255,255,0.05)', p: 3, borderRadius: 4, textAlign: 'center', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Typography variant="h6" fontWeight="bold" sx={{ color: 'secondary.main', mb: 2 }}>{t.footer.kaohsiung}</Typography>
               <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(07) 350-2272" href="tel:073502272" />
-              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kaohsiungAddr} href="https://goo.gl/maps/PLACEHOLDER_KH" />
+              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kaohsiungAddr} />
+              <Box sx={{ borderRadius: 2, overflow: 'hidden', mt: 2 }}>
+                <iframe
+                  title={t.footer.kaohsiung}
+                  src="https://maps.google.com/maps?q=高雄市左營區曾子路533號&output=embed&hl=zh-TW&z=16"
+                  width="100%"
+                  height="180"
+                  style={{ border: 0, display: 'block' }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </Box>
             </Box>
           </Grid>
           {/* 金門 */}
@@ -55,7 +66,18 @@ export default function Footer() {
             <Box sx={{ bgcolor: 'rgba(255,255,255,0.05)', p: 3, borderRadius: 4, textAlign: 'center', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Typography variant="h6" fontWeight="bold" sx={{ color: 'secondary.main', mb: 2 }}>{t.footer.kinmen}</Typography>
               <CenterInfoItem icon={<PhoneIcon fontSize="small" />} title={t.footer.phone} content="(082) 316-016" href="tel:082316016" />
-              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kinmenAddr} href="https://goo.gl/maps/PLACEHOLDER_KM" />
+              <CenterInfoItem icon={<PlaceIcon fontSize="small" />} title={t.footer.address} content={t.footer.kinmenAddr} />
+              <Box sx={{ borderRadius: 2, overflow: 'hidden', mt: 2 }}>
+                <iframe
+                  title={t.footer.kinmen}
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d509.27317066597124!2d118.31608191240765!3d24.446969144881166!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3414a3c54c94e8b7%3A0xb38706887955bbcd!2z56WQ6bS756m66ZaT6LOH6KiK5pyJ6ZmQ5YWs5Y-4!5e1!3m2!1szh-TW!2sus!4v1775028201985!5m2!1szh-TW!2sus"
+                  width="100%"
+                  height="180"
+                  style={{ border: 0, display: 'block' }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </Box>
             </Box>
           </Grid>
         </Grid>
