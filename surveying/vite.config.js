@@ -7,8 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsInlineLimit: 4096,   // 4 KB 以下才 inline（避免影片被 base64）
-    copyPublicDir: false,      // 不把 public/videos（7 GB+）複製進 dist；
-                               // 影片由 electron-builder extraResources 負責
+    copyPublicDir: true,       // 複製 CNAME、favicon 等到 dist
     rollupOptions: {
       output: {
         manualChunks: {
