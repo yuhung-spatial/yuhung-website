@@ -20,6 +20,7 @@ export default function Contact() {
   // --- 1. 表單狀態管理 (包含 honeypot 隱藏欄位) ---
   const [formData, setFormData] = useState({
     name: '',
+    company: '',
     phone: '',
     email: '',
     message: '',
@@ -32,7 +33,7 @@ export default function Contact() {
   const closeSnackbar = () => setSnackbar(prev => ({ ...prev, open: false }));
 
   // ★★★ 請將此處替換為您的 Google Apps Script 網址 ★★★
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzqJeGJ1b8oMCHgNZ8kCXoq1LYiSqNdhc9UUYtUryDIz5h8o59YIVYv1m4AS-Q828P/exec"; 
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxByCUSRS-u08uwApmIt7h9nSjETGN8hO45sWyDMKzsSweOtke3avmNFXWp8vybhkNL/exec"; 
 
   // --- 2. 處理輸入變更 ---
   const handleChange = (e) => {
@@ -66,7 +67,7 @@ export default function Contact() {
       showSnackbar(t.contact.alerts.success, 'success');
       
       // 清空表單
-      setFormData({ name: '', phone: '', email: '', message: '', honeypot: '' }); 
+      setFormData({ name: '', company: '', phone: '', email: '', message: '', honeypot: '' }); 
 
     } catch (error) {
       console.error("Error:", error);
@@ -121,8 +122,8 @@ export default function Contact() {
                 spacing={3}
                 sx={{ width: '100%', m: 0 }} // 鎖死 Grid container 寬度
               >
-                {/* ===== 第一列：姓名 / 電話 / Email ===== */}
-                <Grid item xs={12} sm={4} sx={{ width: '100%' }}>
+                {/* ===== 第一列：姓名 / 公司名稱 ===== */}
+                <Grid item xs={12} sm={6} sx={{ width: '100%' }}>
                   <TextField
                     fullWidth
                     sx={{ width: '100%' }}
@@ -135,7 +136,20 @@ export default function Contact() {
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={4} sx={{ width: '100%' }}>
+                <Grid item xs={12} sm={6} sx={{ width: '100%' }}>
+                  <TextField
+                    fullWidth
+                    sx={{ width: '100%' }}
+                    label={t.contact.form.company}
+                    variant="outlined"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
+                </Grid>
+
+                {/* ===== 第二列：電話 / Email ===== */}
+                <Grid item xs={12} sm={6} sx={{ width: '100%' }}>
                   <TextField
                     fullWidth
                     sx={{ width: '100%' }}
@@ -144,11 +158,11 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="09xxxxxxxx" // 加入提示
+                    placeholder="09xxxxxxxx"
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={4} sx={{ width: '100%' }}>
+                <Grid item xs={12} sm={6} sx={{ width: '100%' }}>
                   <TextField
                     fullWidth
                     sx={{ width: '100%' }}

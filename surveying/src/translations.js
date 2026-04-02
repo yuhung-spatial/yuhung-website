@@ -63,6 +63,7 @@ export const resources = {
       subtitle: "有任何測繪需求或疑問，歡迎隨時與我們聯繫",
       form: {
         name: "您的姓名",
+        company: "公司名稱",
         phone: "聯絡電話",
         email: "電子郵件",
         message: "諮詢內容",
@@ -157,6 +158,7 @@ export const resources = {
       subtitle: "Feel free to contact us for any surveying needs or inquiries.",
       form: {
         name: "Your Name",
+        company: "Company Name",
         phone: "Phone Number",
         email: "Email Address",
         message: "Message",
