@@ -33,7 +33,7 @@ export default function Contact() {
   const closeSnackbar = () => setSnackbar(prev => ({ ...prev, open: false }));
 
   // ★★★ 請將此處替換為您的 Google Apps Script 網址 ★★★
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxByCUSRS-u08uwApmIt7h9nSjETGN8hO45sWyDMKzsSweOtke3avmNFXWp8vybhkNL/exec"; 
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIEu0AuBzSfSSTas3bMo4sVN8nlxfGu0UEk3EULrG12ofAqCrOpDs6hcnj3hN-yClt/exec"; 
 
   // --- 2. 處理輸入變更 ---
   const handleChange = (e) => {
