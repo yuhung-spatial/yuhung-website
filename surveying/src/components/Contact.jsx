@@ -47,9 +47,11 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 驗證手機格式 (台灣 09 開頭 + 8碼)
-    const phoneRegex = /^09\d{8}$/;
-    if (!phoneRegex.test(formData.phone)) {
+    // 驗證電話格式（手機或市話）
+    // 手機：09 開頭 + 8碼 / 市話：0X-XXXXXXX 或 0X-XXXXXXXX
+    const phoneClean = formData.phone.replace(/[-\s()]/g, ''); // 移除分隔符號
+    const phoneRegex = /^0\d{8,10}$/;
+    if (phoneClean && !phoneRegex.test(phoneClean)) {
       showSnackbar(t.contact.alerts.phoneError, 'warning');
       return;
     }
@@ -158,7 +160,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="09xxxxxxxx"
+                    placeholder="0912345678 或 07-3502272"
                   />
                 </Grid>
 

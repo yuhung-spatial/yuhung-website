@@ -75,7 +75,7 @@ export const resources = {
         mapTitle: "辦公室位置",
       },
       alerts: {
-        phoneError: "請輸入正確的手機號碼格式（例如：0912345678）",
+        phoneError: "請輸入正確的電話格式（例如：0912345678 或 07-3502272）",
         success: "感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫。",
         networkError: "發送失敗，請檢查網路連線或稍後再試。",
       },
@@ -170,7 +170,7 @@ export const resources = {
         mapTitle: "Office Locations",
       },
       alerts: {
-        phoneError: "Please enter a valid phone number (e.g. 0912345678).",
+        phoneError: "Please enter a valid phone number (e.g. 0912345678 or 07-3502272).",
         success: "Thank you! We received your message and will get back to you shortly.",
         networkError: "Failed to send. Please check your connection and try again.",
       },
