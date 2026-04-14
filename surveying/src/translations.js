@@ -18,14 +18,14 @@ export const resources = {
     about: {
       title: "關於祐鴻",
       subtitle: "ABOUT US",
-      desc1: "祐鴻團隊深耕於高雄、台南與金門，以「精準、專業、創新」為核心價值，由經驗豐富的資深測量技師與空間資訊專家領軍。",
-      desc2: "我們不僅具備深厚的傳統測量技術底蘊，更積極導入現代化科技，致力於將真實世界的空間數據，轉化為高價值的數位資產。",
+      desc1: "祐鴻團隊深耕於高雄、台南與金門，以「精準、專業、創新」為核心價值，由經驗豐富的資深測量技師與空間資訊專家領軍",
+      desc2: "我們不僅具備深厚的傳統測量技術底蘊，更積極導入現代化科技，致力於將真實世界的空間數據，轉化為高價值的數位資產",
       // 已移除統計數據的翻譯
       items: {
-        item1: { title: "精密工程測繪", desc: "地形地籍測量、都市計畫樁位、指定建築線及工程放樣。" },
-        item2: { title: "先進遙測技術", desc: "運用無人機 (UAV) 攝影、地面三維雷射掃描，快速獲取高密度點雲。" },
-        item3: { title: "數位典藏與建模", desc: "古蹟數位化建檔、逆向工程與 BIM 建模，打造數位雙生。" },
-        item4: { title: "智慧監測系統", desc: "施工鄰房監測、環境變遷偵測及自動化即時定位。" },
+        item1: { title: "精密工程測繪", desc: "地形地籍測量、都市計畫樁位、指定建築線及工程放樣" },
+        item2: { title: "先進遙測技術", desc: "運用無人機 (UAV) 攝影、地面三維雷射掃描，快速獲取高密度點雲" },
+        item3: { title: "數位典藏與建模", desc: "古蹟數位化建檔、逆向工程與 BIM 建模，打造數位雙生" },
+        item4: { title: "智慧監測系統", desc: "施工鄰房監測、環境變遷偵測及自動化即時定位" },
       }
     },
     services: {
@@ -114,14 +114,14 @@ export const resources = {
     about: {
       title: "About YuHung",
       subtitle: "ABOUT US",
-      desc1: "Based in Kaohsiung, Tainan and Kinmen, YuHung holds 'Precision, Professionalism, Innovation' as core values.",
-      desc2: "We combine deep traditional surveying expertise with modern technology, transforming real-world spatial data into high-value digital assets.",
+      desc1: "Based in Kaohsiung, Tainan and Kinmen, YuHung holds 'Precision, Professionalism, Innovation' as core values",
+      desc2: "We combine deep traditional surveying expertise with modern technology, transforming real-world spatial data into high-value digital assets",
       // Stats removed
       items: {
-        item1: { title: "Engineering Surveying", desc: "Topographic survey, cadastral survey, and precise engineering stakeout." },
-        item2: { title: "Advanced Remote Sensing", desc: "UAV photography and terrestrial 3D laser scanning." },
-        item3: { title: "Digital Archiving & BIM", desc: "Digital preservation of monuments, reverse engineering, and BIM modeling." },
-        item4: { title: "Smart Monitoring", desc: "Construction monitoring and real-time positioning." },
+        item1: { title: "Engineering Surveying", desc: "Topographic survey, cadastral survey, and precise engineering stakeout" },
+        item2: { title: "Advanced Remote Sensing", desc: "UAV photography and terrestrial 3D laser scanning" },
+        item3: { title: "Digital Archiving & BIM", desc: "Digital preservation of monuments, reverse engineering, and BIM modeling" },
+        item4: { title: "Smart Monitoring", desc: "Construction monitoring and real-time positioning" },
       }
     },
     services: {
