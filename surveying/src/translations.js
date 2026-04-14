@@ -40,23 +40,23 @@ export const resources = {
     },
     equipment: {
       title: "儀器設備",
-      subtitle: "工欲善其事，必先利其器，採用業界頂尖測繪儀器。",
+      subtitle: "工欲善其事，必先利其器，採用業界頂尖測繪儀器",
       items: [
-        { title: "高精度全站儀", desc: "Trimble 等級測量儀器，確保毫米級精度。" },
-        { title: "GNSS 衛星定位儀", desc: "RTK 即時動態定位，支援多星系訊號接收。" },
-        { title: "地面三維雷射掃描儀", desc: "每秒百萬點掃描速率，快速建立數位孿生模型。" },
-        { title: "測繪級無人機", desc: "搭載高畫質相機與光達 (LiDAR)，大範圍地形測繪首選。" },
+        { title: "高精度全站儀", desc: "Trimble 等級測量儀器，確保毫米級精度" },
+        { title: "GNSS 衛星定位儀", desc: "RTK 即時動態定位，支援多星系訊號接收" },
+        { title: "地面三維雷射掃描儀", desc: "每秒百萬點掃描速率，快速建立數位孿生模型" },
+        { title: "測繪級無人機", desc: "搭載高畫質相機與光達 (LiDAR)，大範圍地形測繪首選" },
       ]
     },
     projects: {
       title: "經典案例",
       subtitle: "累積多年的工程實績，是我們專業能力的最佳證明",
       items: [
-        { title: "公共工程測繪", desc: "協助政府機關進行道路、橋樑及公共設施之精密測量。", badge: "歷史建築監測作業" },
-        { title: "古蹟數位保存", desc: "運用雷射掃描技術，完整記錄歷史建築幾何資訊。" },
-        { title: "大面積地形測量", desc: "無人機航拍結合地面控制點，產製高精度正射影像。" },
-        { title: "文化・保存・傳承", desc: "以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間。" },
-        { title: "團隊培訓與成長", desc: "定期舉辦無人機操作證照培訓與實飛演練，鼓勵同仁精進專業技能，打造兼具實務經驗與創新能力的測繪團隊。" },
+        { title: "公共工程測繪", desc: "協助政府機關進行道路、橋樑及公共設施之精密測量", badge: "歷史建築監測作業" },
+        { title: "古蹟數位保存", desc: "運用雷射掃描技術，完整記錄歷史建築幾何資訊" },
+        { title: "大面積地形測量", desc: "無人機航拍結合地面控制點，產製高精度正射影像" },
+        { title: "文化・保存・傳承", desc: "以數位科技為筆，為下一代留存珍貴的文化記憶與歷史空間" },
+        { title: "團隊培訓與成長", desc: "定期舉辦無人機操作證照培訓與實飛演練，鼓勵同仁精進專業技能，打造兼具實務經驗與創新能力的測繪團隊" },
       ]
     },
     contact: {
@@ -77,8 +77,8 @@ export const resources = {
       },
       alerts: {
         phoneError: "請輸入正確的電話格式（例如：0912345678 或 07-3502272）",
-        success: "感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫。",
-        networkError: "發送失敗，請檢查網路連線或稍後再試。",
+        success: "感謝您的訊息！我們已收到您的聯絡資訊，會盡快與您聯繫",
+        networkError: "發送失敗，請檢查網路連線或稍後再試",
       },
     },
     footer: {
@@ -109,7 +109,7 @@ export const resources = {
     },
     hero: {
       title: "Precision Spatial Recorders",
-      subtitle: "Integrating traditional surveying with modern technology to provide comprehensive spatial solutions.",
+      subtitle: "Integrating traditional surveying with modern technology to provide comprehensive spatial solutions",
     },
     about: {
       title: "About YuHung",
@@ -126,7 +126,7 @@ export const resources = {
     },
     services: {
       title: "Professional Services",
-      subtitle: "Combining advanced instruments and expertise to deliver precise, end-to-end spatial solutions.",
+      subtitle: "Combining advanced instruments and expertise to deliver precise, end-to-end spatial solutions",
       items: [
         { title: "Engineering Surveying", desc: "Covering construction stakeout and site positioning, topographic and cadastral surveys, urban planning stake setting, designated building line layout, deformation and subsidence monitoring, and precision leveling, safeguarding the quality and safety of every major project with millimeter-level accuracy" },
         { title: "3D Laser Scanning", desc: "Utilizing high-precision terrestrial 3D laser scanning to rapidly acquire dense point cloud data of structures and environments, applied to reverse engineering modeling, heritage and cultural asset digital preservation, BIM model creation, interior and exterior spatial measurement, and as-built documentation, delivering complete solutions for digital archiving and engineering management" },
@@ -136,28 +136,28 @@ export const resources = {
     },
     equipment: {
       title: "Our Equipment",
-      subtitle: "A craftsman is only as good as his tools — we deploy industry-leading surveying instruments.",
+      subtitle: "A craftsman is only as good as his tools — we deploy industry-leading surveying instruments",
       items: [
-        { title: "High-Precision Total Station", desc: "Trimble grade instruments delivering millimeter-level measurement accuracy." },
-        { title: "GNSS RTK Receiver", desc: "Real-time kinematic positioning with multi-constellation satellite signal support." },
-        { title: "Terrestrial 3D Laser Scanner", desc: "Captures millions of points per second to rapidly build digital twin models." },
-        { title: "Survey-Grade UAV", desc: "Equipped with high-resolution cameras and LiDAR sensors for large-scale terrain mapping." },
+        { title: "High-Precision Total Station", desc: "Trimble grade instruments delivering millimeter-level measurement accuracy" },
+        { title: "GNSS RTK Receiver", desc: "Real-time kinematic positioning with multi-constellation satellite signal support" },
+        { title: "Terrestrial 3D Laser Scanner", desc: "Captures millions of points per second to rapidly build digital twin models" },
+        { title: "Survey-Grade UAV", desc: "Equipped with high-resolution cameras and LiDAR sensors for large-scale terrain mapping" },
       ]
     },
     projects: {
       title: "Classic Projects",
-      subtitle: "Years of engineering achievements are the best proof of our professional capabilities.",
+      subtitle: "Years of engineering achievements are the best proof of our professional capabilities",
       items: [
-        { title: "Public Works Survey", desc: "Precise surveying for roads, bridges, and public facilities.", badge: "Historic Building Monitoring" },
-        { title: "Heritage Preservation", desc: "Using laser scanning to record historical building geometries." },
-        { title: "Large-scale Mapping", desc: "UAV mapping combined with ground control points for orthophotos." },
-        { title: "Culture · Preservation · Heritage", desc: "Using digital technology to preserve precious cultural memories and historical spaces for future generations." },
-        { title: "Team Training & Growth", desc: "Regular UAV pilot certification courses and flight practice sessions empower our team to sharpen their professional skills, building a surveying crew with hands-on experience and innovative capability." },
+        { title: "Public Works Survey", desc: "Precise surveying for roads, bridges, and public facilities", badge: "Historic Building Monitoring" },
+        { title: "Heritage Preservation", desc: "Using laser scanning to record historical building geometries" },
+        { title: "Large-scale Mapping", desc: "UAV mapping combined with ground control points for orthophotos" },
+        { title: "Culture · Preservation · Heritage", desc: "Using digital technology to preserve precious cultural memories and historical spaces for future generations" },
+        { title: "Team Training & Growth", desc: "Regular UAV pilot certification courses and flight practice sessions empower our team to sharpen their professional skills, building a surveying crew with hands-on experience and innovative capability" },
       ]
     },
     contact: {
       title: "Contact Us",
-      subtitle: "Feel free to contact us for any surveying needs or inquiries.",
+      subtitle: "Feel free to contact us for any surveying needs or inquiries",
       form: {
         name: "Your Name",
         company: "Company Name",
@@ -172,9 +172,9 @@ export const resources = {
         mapTitle: "Office Locations",
       },
       alerts: {
-        phoneError: "Please enter a valid phone number (e.g. 0912345678 or 07-3502272).",
-        success: "Thank you! We received your message and will get back to you shortly.",
-        networkError: "Failed to send. Please check your connection and try again.",
+        phoneError: "Please enter a valid phone number (e.g. 0912345678 or 07-3502272)",
+        success: "Thank you! We received your message and will get back to you shortly",
+        networkError: "Failed to send. Please check your connection and try again",
       },
     },
     footer: {
