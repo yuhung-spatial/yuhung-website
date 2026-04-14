@@ -51,7 +51,7 @@ export default function Footer() {
               <Box sx={{ borderRadius: 2, overflow: 'hidden', mt: 2 }}>
                 <iframe
                   title={t.footer.kaohsiung}
-                  src="https://maps.google.com/maps?q=高雄市左營區曾子路533號&output=embed&hl=zh-TW&z=16"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8263.59089071772!2d120.30338!3d22.682539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e05737f74fc8b%3A0x21b821e57981757e!2zODEz5Y-w54Gj6auY6ZuE5biC5bem54ef5Y2A5pu-5a2Q6LevNTMz6Jmf!5e1!3m2!1szh-TW!2sus!4v1776175460948!5m2!1szh-TW!2sus"
                   width="100%"
                   height="180"
                   style={{ border: 0, display: 'block' }}
