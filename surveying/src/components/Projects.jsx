@@ -16,6 +16,17 @@ import culture2 from '../assets/culture/culture_2.mp4';
 // 古蹟影片：本機檔案（離線可用）
 import heritageMatsu from '../assets/heritage_matsu.mp4';
 import heritageZhushan from '../assets/heritage_zhushan.mp4';
+// 團隊培訓照片
+import train1 from '../assets/training/training_1.jpg';
+import train2 from '../assets/training/training_2.jpg';
+import train3 from '../assets/training/training_3.jpg';
+import train4 from '../assets/training/training_4.jpg';
+import train5 from '../assets/training/training_5.jpg';
+import train6 from '../assets/training/training_6.jpg';
+import train7 from '../assets/training/training_7.jpg';
+import train8 from '../assets/training/training_8.jpg';
+import train9 from '../assets/training/training_9.jpg';
+import train10 from '../assets/training/training_10.jpg';
 
 const TERRAIN        = [terrainHosaa, terrainXishan, terrainNqu, terrainLongko];
 const TERRAIN_LABELS = ['后沙', '西山', '金大', '嚨口'];
@@ -25,6 +36,7 @@ const HERITAGE_VIDS  = [
   { src: heritageMatsu, label: '馬祖梅石軍官特約茶室' },
   { src: heritageZhushan, label: '金門珠山下三落' },
 ];
+const TRAINING = [train1, train2, train3, train4, train5, train6, train7, train8, train9, train10];
 
 export default function Projects() {
   const ctx   = useContext(LanguageContext);
@@ -35,6 +47,7 @@ export default function Projects() {
   const [mi, setMi] = useState(0); // 監測
   const [ci, setCi] = useState(0); // 文化影片（自動）
   const [hi, setHi] = useState(0); // 古蹟（手動）
+  const [tri, setTri] = useState(0); // 培訓
 
   // 地形：每 5 秒
   useEffect(() => {
@@ -51,6 +64,12 @@ export default function Projects() {
   // 文化傳承：每 5 秒自動輪播
   useEffect(() => {
     const id = setInterval(() => setCi(p => (p + 1) % CULTURE_VIDS.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  // 培訓：每 4 秒
+  useEffect(() => {
+    const id = setInterval(() => setTri(p => (p + 1) % TRAINING.length), 4000);
     return () => clearInterval(id);
   }, []);
 
@@ -165,6 +184,25 @@ export default function Projects() {
             <Box key={i} onClick={() => setCi(i)} sx={{
               width: 10, height: 10, borderRadius: '50%', cursor: 'pointer',
               bgcolor: i === ci ? '#fff' : 'rgba(255,255,255,0.35)',
+              transition: 'background 0.3s',
+            }} />
+          ))}
+        </Box>
+      </Box>
+
+      {/* ── 05 團隊培訓 ── */}
+      <Box sx={{ ...CARD, position: 'relative', height: H }}>
+        {TRAINING.map((src, i) => (
+          <Box key={i} component="img" src={src} alt=""
+            sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+              objectFit: 'cover', opacity: i === tri ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
+        ))}
+        <TextOverlay title={items[4]?.title || '團隊培訓'} desc={items[4]?.desc} />
+        <Box sx={{ position: 'absolute', bottom: 68, right: 16, zIndex: 6, display: 'flex', gap: 0.8 }}>
+          {TRAINING.map((_, i) => (
+            <Box key={i} onClick={() => setTri(i)} sx={{
+              width: 10, height: 10, borderRadius: '50%', cursor: 'pointer',
+              bgcolor: i === tri ? '#fff' : 'rgba(255,255,255,0.35)',
               transition: 'background 0.3s',
             }} />
           ))}

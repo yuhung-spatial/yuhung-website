@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Box, Container, Typography, Grid } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { LanguageContext } from '../App';
+import aboutVideo from '../assets/about-video.mp4';
 
 export default function About() {
   const { t } = useContext(LanguageContext);
@@ -75,18 +76,20 @@ export default function About() {
               } 
             }}
           >
-            {/* 建議之後更換為公司團隊真實工作照 */}
-            <Box 
-              component="img" 
-              src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop" 
-              alt="About YuHung" 
-              sx={{ 
-                width: '100%', 
-                borderRadius: 4, 
-                boxShadow: 4, 
-                position: 'relative', 
-                zIndex: 1 
-              }} 
+            <Box
+              component="video"
+              src={aboutVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              sx={{
+                width: '100%',
+                borderRadius: 4,
+                boxShadow: 4,
+                position: 'relative',
+                zIndex: 1
+              }}
             />
           </Box>
         </Grid>
